@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+    <link rel="stylesheet" href="/css/seat.css">
+    <title>Booking Seat</title>
+    <style>
+        input[type="checkbox"] {
+            width: 30px;
+            height: 30px;
+            background-color: #ffffff;
+            display: none;
+
+        }
+
+        /* Màu của checkbox đã được chọn */
+        input[type="checkbox"].selected + label {
+            background-color: green;
+            /* Đổi màu thành đỏ khi được chọn */
+
+        }
+
+        .selected {
+            background-color: red;
+            color: white;
+        }
+
+        .equal-labels {
+            display: flex;
+        }
+
+        .equal-labels label {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="">
+    <!-- seat quantity -->
+    <div class="d-flex m-5">
+        <div>
+            <h5>Select seat quantity:</h5>
+        </div>
+        <div class="ml-4">
+            <input type="number" class="btn border" id="seat-quantity">
+        </div>
+    </div>
+    <!-- end seat quantity -->
+    <!-- start chose seat -->
+    <div class="d-flex justify-content-center">
+        <div class="mr-5" id="seat-container">
+            <div class="row">
+                <th:block th:each="seat, iterStat : ${seats}" class="">
+                    <div class="col-md-6 d-flex justify-content-end equal-labels pr-5">
+                        <input type="checkbox" th:id="${seat.id + 'A'}">
+                        <label th:for="${seat.id}" class="btn border" th:text="${seat.id + 'A'}"></label>
+
+                        <input type="checkbox" th:id="${seat.id + 'B'}">
+                        <label th:for="${seat.id}" class="btn border mx-3" th:text="${seat.id + 'B'}"></label>
+
+                        <input type="checkbox" th:id="${seat.id + 'C'}">
+                        <label th:for="${seat.id}" class="btn border" th:text="${seat.id + 'C'}"></label>
+                    </div>
+
+                    <div class="col-md-6 d-flex justify-content-start equal-labels pl-5">
+                        <input type="checkbox" th:id="${seat.id + 'A'}">
+                        <label th:for="${seat.id}" class="btn border" th:text="${seat.id + 'A'}"></label>
+
+                        <input type="checkbox" th:id="${seat.id + 'B'}">
+                        <label th:for="${seat.id}" class="btn border mx-3" th:text="${seat.id + 'B'}"></label>
+
+                        <input type="checkbox" th:id="${seat.id + 'C'}">
+                        <label th:for="${seat.id}" class="btn border" th:text="${seat.id + 'C'}"></label>
+                    </div>
+
+                </th:block>
+            </div>
+        </div>
+
+        <!--        <div class="mr-5" id="seat-container">-->
+        <!--            <th:block th:each="seat : ${seats}">-->
+        <!--                <input type="checkbox" th:id="${seat.id}">-->
+        <!--                <label th:for="${seat.id}" class="btn border" th:text="${seat.id}"></label>-->
+        <!--            </th:block>-->
+        <!--        </div>-->
+
+
+    </div>
+    <!-- end chose seat -->
+    <div class="float-right mr-5 mt-5">
+        <button class="btn btn-primary" type="submit"><i class="fas fa-arrow-right "></i> Continue</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var seatButtons = document.querySelectorAll(".btn.border");
+
+        seatButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                this.classList.toggle("selected");
+            });
+        });
+
+        // Sự kiện khi người dùng nhấn nút "Continue"
+        var continueButton = document.querySelector('button[type="submit"]');
+        continueButton.addEventListener("click", function () {
+            // Lấy danh sách các ghế đã chọn
+            var selectedSeats = [];
+            var selectedButtons = document.querySelectorAll('.selected');
+            selectedButtons.forEach(function (selectedButton) {
+                selectedSeats.push(selectedButton.getAttribute('id'));
+            });
+
+            // Hiển thị thông báo với các ghế đã chọn
+            alert('Các ghế đã chọn: ' + selectedSeats.join(', '));
+        });
+    });
+
+    // $(document).ready(function () {
+    //     // Sự kiện khi người dùng chọn ghế
+    //     $(document).on('change', 'input[type="checkbox"]', function () {
+    //         var seat = $(this).attr('id'); // Lấy ID của ghế được chọn
+    //         var isSelected = $(this).is(':checked'); // Kiểm tra xem ghế có được chọn hay không
+    //
+    //         if (isSelected) {
+    //             // Thêm lớp CSS để thể hiện ghế đã chọn
+    //             $('#' + seat).addClass('selected');
+    //         } else {
+    //             // Xóa lớp CSS của ghế đã bỏ chọn
+    //             $('#' + seat).removeClass('selected');
+    //         }
+    //     });
+    //     // Sự kiện khi người dùng nhấn nút "Continue"
+    //     $('button[type="submit"]').click(function () {
+    //         // Lấy danh sách các ghế đã chọn
+    //         var selectedSeats = [];
+    //         $('.selected').each(function () {
+    //             selectedSeats.push($(this).attr('id'));
+    //         });
+    //
+    //         // Hiển thị thông báo với các ghế đã chọn
+    //         alert('Các ghế đã chọn: ' + selectedSeats.join(', '));
+    //     });
+    // });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+.navbar {
+  background-color: rgba(32, 80, 129, 1);
+}
+
+.bg-slide {
+  margin: 0;
+  padding: 0;
+  height: 35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/assets/homebg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.slider {
+  width: 40rem;
+  height: 18rem;
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  margin-bottom: 0;
+}
+.slides {
+  width: 500%;
+  height: 16rem;
+  display: flex;
+}
+.slider input {
+  display: none;
+}
+.slide {
+  width: 20%;
+  transition: 2s;
+  display: flex;
+}
+.slide div a img {
+  width: 18rem;
+  height: 14rem;
+  margin-left: 20px;
+}
+.navigation-nanual {
+  position: absolute;
+  width: 800px;
+  margin-top: -20px;
+
+  display: flex;
+  justify-content: center;
+}
+.manual-btn {
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 10px;
+  margin-right: 150px;
+  cursor: pointer;
+  transition: 1s;
+}
+.manual-btn:not(:last-child) {
+  margin-right: 40px;
+}
+.manual-btn:hover {
+  background-color: white;
+}
+#radio1:checked ~ .first {
+  margin-left: 0;
+}
+#radio2:checked ~ .first {
+  margin-left: -20%;
+}
+#radio3:checked ~ .first {
+  margin-left: -40%;
+}
+
+.navigation-auto {
+  position: absolute;
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  margin-top: 460px;
+}
+.navigation-auto div {
+  border: 2px solid red;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+.navigation-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+  background-color: #777;
+}
+#radio1:checked ~ .navigation-auto .auto-btn2 {
+  background-color: #777;
+}
+#radio1:checked ~ .navigation-auto .auto-btn3 {
+  background-color: #777;
+}
+
+.bg-main{
+  background-image: url("/assets/background-filmList.jpg");
+}
+
+.img-slide {
+  height: 14rem;
+  width: 16rem;
+}
+.card-film {
+  width: 10rem;
+  height: 18rem;
+}
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 80%;
+}

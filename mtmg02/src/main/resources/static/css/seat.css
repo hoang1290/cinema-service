@@ -1,0 +1,35 @@
+input[type="checkbox"] {
+    width: 30px;
+    height: 30px;
+    background-color: #9d9c9c;
+    display: none;
+
+}
+
+/* Màu của checkbox đã được chọn */
+input[type="checkbox"].selected + label {
+    background-color: rgba(34, 89, 229, 0.99);
+}
+
+.selected {
+    background-color: rgba(34, 89, 229, 0.99);
+}
+.available {
+    background-color: #ccc;
+}
+
+.vip {
+    background-color: blue;
+}
+
+/* Định dạng cột để chia hàng ghế thành 3 cột */
+.col-md-4 {
+    flex-basis: 33.33%;
+}
+
+/* Ẩn hàng ghế khi độ rộng màn hình nhỏ hơn md (medium) */
+@media (max-width: 767px) {
+    .d-md-block {
+        display: none !important;
+    }
+}

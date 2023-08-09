@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Navbar</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <a class="navbar-brand" id="logo">
+        <img src="/assets/logo.png">
+    </a>
+
+    <ul class="navbar-nav mx-auto d-flex justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link text-light" id="show-time-link">Showtime</a>
+        </li>
+
+        <li class="nav-item">
+            <div class="dropdown mr-2">
+                <a type="button" class="dropdown-toggle text-white text-decoration-none text-center mt-2 mb-1"
+                   data-toggle="dropdown">
+                    Movie
+                </a>
+
+                <div class="dropdown-menu mt-4">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <form class="form-inline">
+                <div class="container form-group input-group mb-0">
+                    <form id="searchform">
+                        <input class="form-control" id="inputSearch" name="movieName" type="text"
+                               placeholder="Search..." required>
+                        <a class="input-group-text bg-light text-decoration-none" id="search-movie">
+                            <span class="fa-solid fa-magnifying-glass py-1"></span>
+                        </a>
+                    </form>
+                </div>
+            </form>
+        </li>
+    </ul>
+
+    <ul class="navbar-nav">
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+            <a class="nav-link  text-white" id="profile-link">
+                <i class="fas fa-user"></i>&nbspWelcome,&nbsp
+                <span th:text="${#authentication.name}"></span>
+            </a>
+        </li>
+
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+            <a class="nav-link  text-white" href="javascript: document.logoutForm.submit()">
+                <i class="fa-solid fa-power-off"></i>&nbspLogout</a>
+            <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+            </form>
+        </li>
+
+        <li class="nav-item" sec:authorize="isAnonymous()">
+            <a class="nav-link text-white" th:href="@{/login}">
+                <i class="fas fa-sign-in"></i>&nbsp Sign in
+            </a>
+        </li>
+
+        <li class="nav-item" sec:authorize="isAnonymous()">
+            <a class="nav-link text-white" th:href="@{/register}">
+                <i class="fas fa-user-plus"></i>&nbsp Sign up
+            </a>
+        </li>
+    </ul>
+</nav>
+<script src="/js/navbar.js"></script>
+</body>
+</html>

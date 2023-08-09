@@ -1,0 +1,13 @@
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (1, '8:00');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (2, '9:00');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (3, '10:00');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (4, '11:00');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (5, '13:00');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (6, '14:30');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (7, '15:30');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (8, '16:30');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (9, '17:00');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (10, '18:00');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (11, '19:00');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (12, '20:00');
+INSERT INTO movietheater.schedule (id, schedule_time) VALUES (13, '21:00');

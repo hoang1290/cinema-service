@@ -1,0 +1,12 @@
+INSERT INTO movietheater.type (id, type_name) VALUES (1, 'Hành động');
+INSERT INTO movietheater.type (id, type_name) VALUES (2, 'Viễn tưởng');
+INSERT INTO movietheater.type (id, type_name) VALUES (3, 'Kinh dị');
+INSERT INTO movietheater.type (id, type_name) VALUES (4, 'Hài hước');
+INSERT INTO movietheater.type (id, type_name) VALUES (5, 'Chiến tranh');
+INSERT INTO movietheater.type (id, type_name) VALUES (6, 'Phiêu lưu');
+INSERT INTO movietheater.type (id, type_name) VALUES (7, 'Lãng mạng');
+INSERT INTO movietheater.type (id, type_name) VALUES (8, 'Kiếm hiệp');
+INSERT INTO movietheater.type (id, type_name) VALUES (9, 'Tâm lý 18+');
+INSERT INTO movietheater.type (id, type_name) VALUES (10, 'Tình cảm');
+INSERT INTO movietheater.type (id, type_name) VALUES (11, 'Âm nhạc');
+INSERT INTO movietheater.type (id, type_name) VALUES (12, 'Hoạt hình');

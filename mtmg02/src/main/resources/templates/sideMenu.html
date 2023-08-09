@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="/css/slideMenu.css">
+    <title>Slide Menu</title>
+</head>
+<body>
+
+
+<div class="d-flex justify-content-center m-3">
+    <img class="w-50 img-fluid rounded-circle" th:src="@{/get-img/{id}(id=${account.image.id})}">
+</div>
+
+<div class="d-flex justify-content-center">
+    <h4 th:text="${account.username}"></h4>
+</div>
+
+<div class="d-flex justify-content-center mb-3">
+    <img src="/assets/Star%201.png" class="mr-2">
+    <span th:text="'Score: ' + ${account.member.score}"></span>
+</div>
+
+<ul class="list-unstyled side-menu">
+    <li class="container border-bottom border-top py-3">
+        <a class="text-dark text-decoration-none" id="account-information">
+            Account Information
+        </a>
+    </li>
+
+    <li class="border-bottom py-3">
+        <a class="container text-dark text-decoration-none" id="history">
+            History
+        </a>
+    </li>
+
+    <li class="border-bottom py-3">
+        <a class="container text-dark text-decoration-none" id="booked-Ticket">
+            Booked ticket
+        </a>
+    </li>
+
+    <li class="border-bottom py-3">
+        <a class="container text-dark text-decoration-none" id="canceled-ticket">
+            Canceled ticket
+        </a>
+    </li>
+</ul>
+<script src="/js/sideMenu.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+body{
+    background-color: #F2F3F4;
+}
+
+header{
+    text-align: center; 
+    margin-top: 20px;
+}
+
+#movieImage{
+    height: 200px;
+}
+
+#movieName{
+    font-size: 200%; 
+    color: #4682B4;
+}
+
+#memberInformation{
+    font-size: 200%; 
+    color: #4682B4;
+}
+
+#Total{
+    color: green;
+}
+
+#member{
+    font-size: 200%; 
+    color: #4682B4;
+}
+
+#cardHeader{
+    background-color: white;
+}
+
+#memberId{
+    width: 50%;
+}
+
+#check{
+    background-color: #4682B4;
+    height: 37px;
+    margin-left: 30px;
+    color: white;
+}
+
+#confirm{
+    background-color: #4682B4;
+    height: 37px;
+    margin-right: 100px;
+    color: white;
+}
+
+#check{
+    background-color: #4682B4;
+}
+
